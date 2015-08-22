@@ -1,0 +1,33 @@
+============USER----STORIES=============
+
+As a user I would like to...
+
+	- be able to login/register (oauth?)
+	- be able to view a list of publically listed hunts
+	- be able to view a list of hunts listed by friends
+	- be able to create a hunt
+		- can be private or public
+	- be able to delete a hunt
+	- be able to join a hunt
+	- has to be mobile
+
+	---THE---HUNT---
+		- hunts have a general location
+		- start location has a given radius
+
+		- Clues can either be a picture or a piece of text
+			STRETCH audio implementation down the road
+		- notify if I am 'hot' or 'cold', based off of how far I am from the clue's radius
+		- to get new clues you must enter a text within the radius of current clue you are on
+
+	---THE---USERS---
+		- have hunts
+		- can join a hunt
+		- has amount of hunts completed, and in progress
+
+	---THE---INDEX---
+		- has hunts near you (only public)
+		- has top hunters
+
+============PSUDOKODE=====================
+
