@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
 	has_many :hunts, dependent: :destroy
 	has_many :scavenger_hunts, dependent: :destroy
 
+	def to_param
+		username
+	end
+
 end
