@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -25,6 +22,23 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
+
+resources :users, :except => [:index, :new, :edit, :show], controller: "users", shallow: true do
+  resources :made_hunts, controller: "hunts", :except => [:new, :create, :index] do
+    resource :clues
+  end
+
+  resources :current_hunts, controller: "scavenger_hunts", :except => [:edit, :update, :new, :create, :index]
+
+end
+
+resources :hunts, :only => [:index, :new,  :create]
+
+get 'my_hunts' => 'hunts#my_hunts'
+get 'edit_profile' => 'users#edit'
+
+get '/:id' => 'user#show', as: 'profile'
+
 
   # Example resource route with sub-resources:
   #   resources :products do
