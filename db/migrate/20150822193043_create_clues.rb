@@ -3,7 +3,8 @@ class CreateClues < ActiveRecord::Migration
     create_table :clues do |t|
       t.references :hunt, index: true, foreign_key: true
       t.string :description
-      t.string :location
+      t.decimal :longitude
+      t.decimal :latitude
       t.string :answer
 
       t.timestamps null: false
