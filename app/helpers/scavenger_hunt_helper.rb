@@ -1,0 +1,2 @@
+module ScavengerHuntHelper
+end

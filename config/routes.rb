@@ -1,5 +1,49 @@
 Rails.application.routes.draw do
 
+  get 'scavenger_hunt/show'
+
+  get 'scavenger_hunt/destroy'
+
+  get 'scavenger_hunt/create'
+
+  get 'users/create'
+
+  get 'users/update'
+
+  get 'users/destroy'
+
+  get 'users/show'
+
+  get 'users/edit'
+
+  get 'hunts/edit'
+
+  get 'hunts/show'
+
+  get 'hunts/update'
+
+  get 'hunts/index'
+
+  get 'hunts/create'
+
+  get 'hunts/new'
+
+  get 'hunts/my_hunts'
+
+  get 'clues/create'
+
+  get 'clues/new'
+
+  get 'clues/edit'
+
+  get 'clues/show'
+
+  get 'clues/update'
+
+  get 'clues/destroy'
+
+  get 'welcome/index'
+
   root 'welcome#index'
 
   # Example of regular route:
