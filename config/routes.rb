@@ -1,21 +1,19 @@
 Rails.application.routes.draw do
-root 'welcome#index'
+	root 'welcome#index'
+	post 'login' => 'sessions#create'
+	delete 'sessions/:id' => 'sessions#destroy', as: 'logout' 
 
-resources :users, :except => [:index, :new, :edit, :show], controller: "users", shallow: true do
-  resources :made_hunts, controller: "hunts", :except => [:new, :create, :index] do
-    resource :clues
-  end
+	get 'edit_profile' => 'users#edit'
+	get 's/:id' => 'users#show', as: 'profile'
+	post 'users/new' => 'users#create', as: 'sign_up'
+	get 'hunts/' => 'hunts#index', as: 'hunts'
+	
 
-  resources :current_hunts, controller: "scavenger_hunts", :except => [:edit, :update, :new, :create, :index]
+	resources :s, :except => [:index, :new, :edit, :show, :create], controller: "users", shallow: true 
 
-end
-
-resources :hunts, :only => [:index, :new,  :create]
-
-get 'my_hunts' => 'hunts#my_hunts'
-get 'edit_profile' => 'users#edit'
-
-get '/:id' => 'users#show', as: 'profile'
+	resources :hunts, controller: "hunts", :except => [:index, :new] do
+			    resources :clues
+	end
 
 
 end

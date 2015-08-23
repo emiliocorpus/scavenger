@@ -1,2 +1,38 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div id="banner" class="debugger">
+	<h1>Welcome to <span>SCAVENGERS</span></h1>
+</div>
+
+<hr>
+
+<div id="login" class="debugger">
+	<%= form_for(:session, url: login_path) do |f|%>
+			  
+	username: <%= f.text_field :username %><br>
+	    
+	password: <%= f.password_field :password %>
+
+	<%= f.submit "Login" %>
+	<% end %>
+
+</div>
+
+<div id="sign-up" class="debugger">
+	<%= form_for(:new_user, url: sign_up_path, method: :post) do |f| %>
+
+	First Name: <%= f.text_field :first_name %>
+
+	Last Name: <%= f.text_field :last_name %>
+
+	Username: <%= f.text_field :username %>
+	
+	Email: <%= f.text_field :email %>
+
+	Password: <%= f.password_field :password %>
+
+	Confirm password: <%= f.password_field :confirm_password %>
+
+	<%= f.submit "Submit" %>
+
+	<% end %>
+
+</div>

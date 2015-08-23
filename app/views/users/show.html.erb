@@ -1,2 +1,37 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div id="banner" class="debugger">
+	<h1>Greetings <%= current_user.username %></h1>
+</div>
+
+<%= button_to "logout", {action: "destroy", id: current_user.id}, method:  "delete" %>
+
+<div id="user-page-body" class="debugger text-center">
+	<div id="current_hunts" class="debugger scroll-y">
+		<h3 class="text-center"><u>MY CURRENT HUNTS</u></h3>
+
+		<% if current_hunts.length > 0 %>
+			<ul>
+			<% current_hunts.each do |hunt| %>
+				<li><%= link_to 'example', hunt_path(hunt) %></li>
+			<% end %>
+		<% end %>
+			</ul>
+	
+	</div>
+
+	<div id="my_hunts" class="debugger scroll-y">
+		<h3 class="text-center"><u>MY MADE HUNTS</u></h3>
+			<% if my_hunts.length > 0 %>
+				<ul>
+				<% my_hunts.each do |hunt| %>
+					<li><%= link_to 'example', hunt_path(hunt) %></li>
+				<% end %>
+			<% end %>
+				</ul>
+
+	</div>
+</div>
+
+<div id="edit-body">
+	<%= button_to "Look For New Hunt", hunts_path, method: "get"%>
+</div>
+
