@@ -1,7 +1,19 @@
 <div id="banner" class="debugger">
 	<h1>Greetings <%= current_user.username %></h1>
 	<span><%= link_to "Edit Profile", edit_profile_path(current_user) %></span>
+	<span><%= link_to "logout", logout_path(current_user), {class: "button", method: "delete", action: "destroy" } %></span>
+</div>
+
+<div id="page_body" class="debugger text-center">
+	<div id="all_valid_hunts" class="debugger text-center scroll-y">
+		<% if @hunts.length > 0 %>
+			<ul>
+			<% @hunts.each do |hunt| %>
+				<li><%= link_to "Hunt", hunt_path(hunt) %></li>
+			<% end %>
+		<% end %>
+			</ul>
+	</div>
 </div>
 
 
-<%= link_to "logout", logout_path(current_user), {class: "button", method: "delete", action: "destroy" } %>

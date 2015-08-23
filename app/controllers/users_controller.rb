@@ -23,8 +23,7 @@ class UsersController < ApplicationController
   end
 
   def update
-      valid_user_check
-    
+      redirect_to root_path unless valid_user_check
   end
 
   def destroy
@@ -33,12 +32,12 @@ class UsersController < ApplicationController
   end
 
   def show
-      valid_user_check
+      redirect_to root_path unless valid_user_check
       
   end
 
   def edit
-      valid_user_check
+      redirect_to root_path unless valid_user_check
   end
 
 end

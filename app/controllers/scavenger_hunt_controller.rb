@@ -2,14 +2,21 @@ class ScavengerHuntController < ApplicationController
   include UsersHelper
   include SessionsHelper
   def show
-  		valid_user_check
+  		redirect_to root_path unless valid_user_check
   end
 
   def destroy
-  		valid_user_check
+  		redirect_to root_path unless valid_user_check
   end
 
   def create
-  		valid_user_check
+      p params
+      current_user.scavenger_hunts.create(hunt_id: params[:hunt_id])
+      redirect_to root_path
   end
+
+  def index
+      @user_scav_hunts = current_user.scavenger_hunts
+  end
+
 end

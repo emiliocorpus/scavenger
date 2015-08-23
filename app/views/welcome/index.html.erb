@@ -17,30 +17,32 @@
 
 <hr>
 
-<div id="user_page_body" class="debugger">
+<div id="page_body" class="debugger">
 
 	<div id="empty-div-landing-page">
 
 	</div>
 
-	<div id="sign-up" class="debugger">
-		<%= form_for(:new_user, url: sign_up_path) do |f| %>
+	<div id="sign-up" class="debugger div-center">
+		<div id="sign-up-form" class="debugger">
+			<%= form_for(:new_user, url: sign_up_path) do |f| %>
 
-		First Name: <%= f.text_field :first_name %>
+			First Name: <%= f.text_field :first_name %>
 
-		Last Name: <%= f.text_field :last_name %>
+			Last Name: <%= f.text_field :last_name %>
 
-		Username: <%= f.text_field :username %>
-		
-		Email: <%= f.text_field :email %>
+			Username: <%= f.text_field :username %>
+			
+			Email: <%= f.text_field :email %>
 
-		Password: <%= f.password_field :password %>
+			Password: <%= f.password_field :password %>
 
-		Confirm password: <%= f.password_field :confirm_password %>
+			Confirm password: <%= f.password_field :confirm_password %>
 
-		<%= f.submit "Submit" %>
+			<%= f.submit "Submit" %>
 
-		<% end %>
+			<% end %>
+		</div>
 
 	</div>
 </div>

@@ -39,19 +39,6 @@ users.each do |user|
 end
 
 
-hunts = Hunt.all 
-
-users.each do |user|
-	hunts.each do |hunt|
-		if hunt.user_id != user.id
-			ScavengerHunt.create(user_id: user.id,
-								hunt_id: hunt.id)
-		end
-
-	end
-end
-
-
 
 
 

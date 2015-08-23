@@ -1,8 +1,0 @@
-<div id="banner" class="debugger">
-	<h1>Greetings <%= current_user.username %></h1>
-	<span><%= link_to "Edit Profile", edit_profile_path(current_user) %></span>
-</div>
-
-<%= link_to "logout", logout_path(current_user), {class: "button", method: "delete", action: "destroy" } %>
-
-<p>Find me in app/views/users/create.html.erb</p>

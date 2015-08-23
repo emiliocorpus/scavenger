@@ -13,9 +13,6 @@ module UsersHelper
 	end
 
 	def valid_user_check
-		if !current_user
-		  redirect_to root_path
-		end
+		return true if current_user
 	end
-
 end

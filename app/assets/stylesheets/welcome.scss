@@ -16,14 +16,20 @@ $primary-color: #42A2FF;
 }
 
 #sign-up input{
-	width: 100px;
-
+	width: 150px;
 	display: block;
 	clear:both;
+
 }
 
 #login {
 	float: right;
 	display: inline-block;
 	clear:both;
+}
+
+#sign-up-form {
+	margin-left: 25%;
+	margin-top: 25%;
+	width: 200px;
 }
