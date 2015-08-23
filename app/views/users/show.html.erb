@@ -1,9 +1,9 @@
 <div id="banner" class="debugger">
 	<h1>Greetings <%= current_user.username %></h1>
-	<span><%= link_to "Edit Profile", edit_profile_path(current_user) %>
+	<span><%= link_to "Edit Profile", edit_profile_path(current_user) %></span>
 </div>
 
-<%= button_to "logout", {action: "destroy", id: current_user.id}, method:  "delete" %>
+<%= link_to "logout", logout_path, {class: "button", method: "delete", action: "destroy" } %>
 
 <div id="user_page_body" class="debugger text-center">
 	<div id="current_hunts" class="debugger scroll-y">
@@ -33,6 +33,10 @@
 </div>
 
 <div id="edit-body">
-	<%= button_to "Look For New Hunt", hunts_path, method: "get"%>
+	<%= link_to "Look For New Hunt", hunts_path, {class: "button"} %>
+	
+	<%= link_to "Create New Hunt",  new_user_hunt_path(current_user), {class: "button"}%>
+
 </div>
+
 

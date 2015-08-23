@@ -23,6 +23,8 @@ class UsersController < ApplicationController
   end
 
   def update
+      valid_user_check
+    
   end
 
   def destroy
@@ -31,12 +33,12 @@ class UsersController < ApplicationController
   end
 
   def show
-      if !current_user || params[:id] != current_user.username
-        redirect_to root_path
-      end
+      valid_user_check
+      
   end
 
   def edit
-    @user = current_user
+      valid_user_check
   end
+
 end
