@@ -1,2 +1,8 @@
-<h1>ScavengerHunt#destroy</h1>
+<div id="banner" class="debugger">
+	<h1>Greetings <%= current_user.username %></h1>
+	<span><%= link_to "Edit Profile", edit_profile_path(current_user) %>
+</div>
+
+<%= button_to "logout", {action: "destroy", id: current_user.id}, method:  "delete" %>
+
 <p>Find me in app/views/scavenger_hunt/destroy.html.erb</p>

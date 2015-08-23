@@ -1,2 +1,8 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div id="banner" class="debugger">
+	<h1>Greetings <%= current_user.username %></h1>
+	<span><%= link_to "Edit Profile", edit_profile_path(current_user) %>
+</div>
+
+<%= button_to "logout", {action: "destroy", id: current_user.id}, method:  "delete" %>
+
+<h2> YOU ARE IN THE EDIT PROFILE PAGE</h2>

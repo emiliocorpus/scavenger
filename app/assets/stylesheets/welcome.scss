@@ -7,15 +7,23 @@ $primary-color: #42A2FF;
 
 #banner {
 	background-color: $primary-color;
+	height: 100px;
 }
 
 #sign-up {
-	width: 200px;
+	width: 50%;
+	float: right;
 }
 
 #sign-up input{
-	width: 100%;
+	width: 100px;
 
 	display: block;
+	clear:both;
+}
+
+#login {
+	float: right;
+	display: inline-block;
 	clear:both;
 }

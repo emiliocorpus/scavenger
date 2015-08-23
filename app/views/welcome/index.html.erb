@@ -1,38 +1,46 @@
 <div id="banner" class="debugger">
 	<h1>Welcome to <span>SCAVENGERS</span></h1>
+
+	<span id="login" class="debugger">
+		<%= form_for(:session, url: login_path) do |f|%>
+				  
+		username: <%= f.text_field :username %>
+		    
+		password: <%= f.password_field :password %>
+
+		<%= f.submit "Login" %>
+		<% end %>
+	</span>
+
+
 </div>
 
 <hr>
 
-<div id="login" class="debugger">
-	<%= form_for(:session, url: login_path) do |f|%>
-			  
-	username: <%= f.text_field :username %><br>
-	    
-	password: <%= f.password_field :password %>
+<div id="user_page_body" class="debugger">
 
-	<%= f.submit "Login" %>
-	<% end %>
+	<div id="empty-div-landing-page">
 
-</div>
+	</div>
 
-<div id="sign-up" class="debugger">
-	<%= form_for(:new_user, url: sign_up_path, method: :post) do |f| %>
+	<div id="sign-up" class="debugger">
+		<%= form_for(:new_user, url: sign_up_path) do |f| %>
 
-	First Name: <%= f.text_field :first_name %>
+		First Name: <%= f.text_field :first_name %>
 
-	Last Name: <%= f.text_field :last_name %>
+		Last Name: <%= f.text_field :last_name %>
 
-	Username: <%= f.text_field :username %>
-	
-	Email: <%= f.text_field :email %>
+		Username: <%= f.text_field :username %>
+		
+		Email: <%= f.text_field :email %>
 
-	Password: <%= f.password_field :password %>
+		Password: <%= f.password_field :password %>
 
-	Confirm password: <%= f.password_field :confirm_password %>
+		Confirm password: <%= f.password_field :confirm_password %>
 
-	<%= f.submit "Submit" %>
+		<%= f.submit "Submit" %>
 
-	<% end %>
+		<% end %>
 
+	</div>
 </div>

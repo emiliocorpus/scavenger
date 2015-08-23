@@ -1,10 +1,11 @@
 <div id="banner" class="debugger">
 	<h1>Greetings <%= current_user.username %></h1>
+	<span><%= link_to "Edit Profile", edit_profile_path(current_user) %>
 </div>
 
 <%= button_to "logout", {action: "destroy", id: current_user.id}, method:  "delete" %>
 
-<div id="user-page-body" class="debugger text-center">
+<div id="user_page_body" class="debugger text-center">
 	<div id="current_hunts" class="debugger scroll-y">
 		<h3 class="text-center"><u>MY CURRENT HUNTS</u></h3>
 
