@@ -3,6 +3,7 @@ class ScavengerHuntController < ApplicationController
   include SessionsHelper
   def show
   		redirect_to root_path unless valid_user_check
+      @hunt = ScavengerHunt.find(params[:id]).hunt
   end
 
   def destroy

@@ -1,3 +1,37 @@
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+	
+
+<script type ="text/javascript">
+
+   	$(document).ready(
+           function initialize() {
+               var lat = <%= @hunt.latitude %>;
+               var lng = <%= @hunt.longitude %>;
+               var myCenter=new google.maps.LatLng(lat,lng);
+
+               var mapProp = {
+                 center:myCenter,
+                 zoom:10,
+                 mapTypeId:google.maps.MapTypeId.ROADMAP
+                 };
+
+                 map = new google.maps.Map(document.getElementById("map-canvas"),mapProp);
+
+                 var theHunt = new google.maps.Circle({
+                   center:myCenter,
+                   radius:2000,
+                   strokeColor:"#0000FF",
+                   strokeOpacity:0.8,
+                   strokeWeight:2,
+                   fillColor:"#0000FF",
+                   fillOpacity:0.4
+                 });
+                 console.log("You are accessing the invidiual hunt script")
+                 theHunt.setMap(map)
+         }
+     )
+</script>
+
 <div id="banner" class="debugger">
 	<h1>Greetings <%= current_user.username %></h1>
 	<span><%= link_to "home", profile_path(current_user) %></span>
@@ -9,6 +43,13 @@
 </div>
 
 
+<div id="map-container" class="debugger">
+	<div id="map-canvas" class="debugger">
+	</div>
+</div>
+
 <p><h1>INDIVIDUAL SCAVENGER HUNT </h1></p>
 <p> LAST CLUE: KJkajshdfadsf akljhkjahljadsf kljhd</p>
+
+
 

@@ -1,4 +1,41 @@
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+	
 
+<script type ="text/javascript">
+	$(document).ready(
+        function initialize()
+        {
+        var lat = <%= @hunt.latitude %>;
+        var lng = <%= @hunt.longitude %>;
+        var myCenter=new google.maps.LatLng(lat,lng);
+
+        var mapProp = {
+          center:myCenter,
+          zoom:10,
+          mapTypeId:google.maps.MapTypeId.ROADMAP
+          };
+
+          map = new google.maps.Map(document.getElementById("map-canvas"),mapProp);
+
+          var theHunt = new google.maps.Circle({
+            center:myCenter,
+            radius:2000,
+            strokeColor:"#0000FF",
+            strokeOpacity:0.8,
+            strokeWeight:2,
+            fillColor:"#0000FF",
+            fillOpacity:0.4
+          });
+
+          google.maps.event.addListener(map, 'click', function(event) {
+            placeMarker(event.latLng);
+          });
+          console.log("You are accessing the invidiual hunt script")
+     
+          theHunt.setMap(map)
+      }
+  )
+</script>
 
 
 <div id="banner" class="debugger">
@@ -16,8 +53,6 @@
 			<div id="map-container">
 			  <div id="map-canvas"></div>
 			</div>
-
-					(GEO CODER CANVAS TO BE INSERTED HERE)<br><br>
 
 		<%= button_to 'Begin Hunt?', start_new_hunt_path(current_user, @hunt), method: 'post' %>
 	</div>

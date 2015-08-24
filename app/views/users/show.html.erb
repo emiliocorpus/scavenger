@@ -12,7 +12,7 @@
 		<% if current_hunts.length > 0 %>
 			<ul>
 			<% current_hunts.each do |hunt| %>
-				<li><%= link_to 'example', hunt_path( hunt) %></li>
+				<li><%= link_to 'example', user_scavenger_hunt_path(current_user, hunt) %></li>
 			<% end %>
 		<% end %>
 			</ul>
