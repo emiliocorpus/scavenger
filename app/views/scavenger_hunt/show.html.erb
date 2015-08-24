@@ -37,19 +37,13 @@
 	<span><%= link_to "home", profile_path(current_user) %></span>
 	<span><%= link_to "edit profile", edit_profile_path(current_user) %></span>
 	<span><%= link_to "logout", logout_path(current_user), {class: "button", method: "delete", action: "destroy" } %></span>
-
-	<span><%= link_to "Edit Profile", edit_profile_path(current_user) %></span>
-	<span><%= link_to "logout", logout_path, {class: "button", method: "delete", action: "destroy" } %></span>
 </div>
 
 
 <div id="map-container" class="debugger">
+	This is <b><%= @hunt.user.username %></b>'s hunt! which was made on <%= @hunt.user.created_at %>
 	<div id="map-canvas" class="debugger">
 	</div>
 </div>
-
-<p><h1>INDIVIDUAL SCAVENGER HUNT </h1></p>
-<p> LAST CLUE: KJkajshdfadsf akljhkjahljadsf kljhd</p>
-
 
 
