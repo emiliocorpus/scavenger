@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20150822193151) do
   create_table "clues", force: :cascade do |t|
     t.integer  "hunt_id"
     t.string   "description"
-    t.decimal  "longitude"
-    t.decimal  "latitude"
+    t.float    "longitude"
+    t.float    "latitude"
     t.string   "answer"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 20150822193151) do
   create_table "hunts", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "description"
-    t.decimal  "longitude"
-    t.decimal  "latitude"
+    t.float    "longitude"
+    t.float    "latitude"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

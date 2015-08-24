@@ -1,2 +1,11 @@
+<div id="banner" class="debugger">
+	<h1>Greetings <%= current_user.username %></h1>
+	<span><%= link_to "home", profile_path(current_user) %></span>
+	<span><%= link_to "edit profile", edit_profile_path(current_user) %></span>
+	<span><%= link_to "logout", logout_path(current_user), {class: "button", method: "delete", action: "destroy" } %></span>
+</div>
+
+
+
 <h1>Clues#new</h1>
 <p>Find me in app/views/clues/new.html.erb</p>

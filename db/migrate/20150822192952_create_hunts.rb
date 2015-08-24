@@ -3,9 +3,8 @@ class CreateHunts < ActiveRecord::Migration
     create_table :hunts do |t|
       t.references :user, index: true, foreign_key: true
       t.string :description
-      t.decimal :longitude
-      t.decimal :latitude
-
+      t.float :longitude
+      t.float :latitude
       t.timestamps null: false
     end
   end

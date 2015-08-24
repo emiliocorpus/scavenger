@@ -7,6 +7,7 @@ class CreateScavengerHunts < ActiveRecord::Migration
       t.integer :current_clue_number, default: 1
 
       t.timestamps null: false
+
     end
   end
 end

@@ -5,4 +5,5 @@ class Hunt < ActiveRecord::Base
   belongs_to :user
   has_many :clues, dependent: :destroy
   has_many :scavenger_hunts, dependent: :destroy
+
 end

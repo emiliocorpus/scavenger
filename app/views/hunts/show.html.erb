@@ -1,9 +1,11 @@
+
+
+
 <div id="banner" class="debugger">
 	<h1>Greetings <%= current_user.username %></h1>
-	
+	<span><%= link_to "home", profile_path(current_user) %></span>
 	<span><%= link_to "edit profile", edit_profile_path(current_user) %></span>
 	<span><%= link_to "logout", logout_path(current_user), {class: "button", method: "delete", action: "destroy" } %></span>
-
 </div>
 
 
@@ -11,10 +13,18 @@
 	<div id="show_hunt" class="debugger">
 		This is <%= @hunt.user.first_name %>'s hunt! which was made on <%= @hunt.user.created_at %>
 		The vicinity of this hunt is within 1 mile of the following location: <br>
+			<div id="map-container">
+			  <div id="map-canvas"></div>
+			</div>
+
 					(GEO CODER CANVAS TO BE INSERTED HERE)<br><br>
 
 		<%= button_to 'Begin Hunt?', start_new_hunt_path(current_user, @hunt), method: 'post' %>
 	</div>
 
 </div>
+
+
+
+
 
