@@ -1,0 +1,117 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React</title>
+    <script src="https://fb.me/react-with-addons-0.13.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+	<!-- SCRIPT FOR ADDING MARDOWN -->
+	<!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+ -->
+
+  </head>
+  <body>
+    <div id="content"></div>
+    <script type="text/jsx">
+          // locations: 
+
+   var MyLocationsContainer = React.createClass({
+       getInitialState: function(){
+         return {
+           locations: ['stuff', "in here", "this"],
+         }
+       },
+
+       addLocation: function(location){
+         if (location !== "") {
+	         this.setState({
+	           locations: this.state.locations.concat([location])
+	         });
+	     }
+       },
+       render: function(){
+         return (
+           <div>
+             <h3> Addresses</h3>
+             <AddLocation addNew={this.addLocation} />
+             <ShowList names={this.state.locations} />
+           </div>
+         )
+       }
+   });
+
+   var AddLocation = React.createClass({
+     getInitialState: function(){
+       return {
+         newLocation: ''
+       }
+     },
+     updateNewLocation: function(e){
+       this.setState({
+         newLocation: e.target.value
+       });
+     },
+     handleAddNew: function(){
+       this.props.addNew(this.state.newLocation);
+       this.setState({
+         newLocation: ''
+       });
+     },
+     render: function(){
+       return (
+           <div>
+             <input type="text" value={this.state.newLocation} onChange={this.updateNewLocation} />
+             <button onClick={this.handleAddNew}> Add Location</button>
+           </div>
+       );
+     }
+   });
+
+
+   var ShowList = React.createClass({
+   	 getDefaultProps: function(){
+   	 	return {
+   	 		locations: []
+   	 	}
+   	 },
+     render: function(){
+       var listItems = this.props.names.map(function(location){
+         return <li> {location} <button onClick={this.deleteAddress}> Remove </button></li>;
+       });
+       return (
+           <div>
+             <h3> locations </h3>
+             <ul>
+               {listItems}
+             </ul>
+           </div>
+       )
+     }
+   });
+
+   React.render(<MyLocationsContainer />, document.getElementById('content'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>
